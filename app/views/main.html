@@ -1,0 +1,115 @@
+<nav class="navbar navbar-default  navbar-fixed-top"
+  role="navigation">
+<div class="container">
+  <div class="navbar-header">
+    <button type="button" class="navbar-toggle" data-toggle="collapse"
+      data-target=".navbar-collapse">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+    <a class="navbar-brand" ng-href="#/">Playing</a>
+  </div>
+  <div class="collapse navbar-collapse" >
+    <ul class="nav navbar-nav">
+      <li class="active" >
+        <a ng-href="#/"><span class="glyphicon glyphicon-home"></span>
+           Home</a>
+      </li>
+     <li>
+        <a ng-href="#/contactme"><span class="glyphicon glyphicon-earphone"></span>
+          Contact me</a>
+      <li >
+        <a ng-href="#/aboutme"><span class="glyphicon glyphicon-font"></span>
+          About me</a>
+      </li>
+    </ul>
+  </div>
+</div>
+</nav>
+
+<blockquote>
+            <h1>Problem:</h1>
+            <ul>
+                <li>A hotel chain operating in Miami wishes to offer room reservation services over the internet.
+They have three hotels in Miami: Lakewood, Bridgewood and Ridgewood. Each hotel has
+separate weekday and weekend(Saturday and Sunday) rates. There are special rates for
+rewards customer as a part of loyalty program.</li>
+                <li>Lakewood with a rating of 3 has weekday rates as <strong>110$</strong> for regular customer and <strong>80$</strong>
+for rewards customer. The weekend rates are <strong>90$</strong> for regular customer and <strong>80$</strong> for a
+rewards customer.</li>
+                <li>Bridgewood with a rating of 4 has weekday rates as <strong>160$</strong> for regular customer and <strong>110$</strong>
+for rewards customer. The weekend rates are <strong>60$</strong> for regular customer and <strong>50$</strong> for a
+rewards customer.</li>
+<li>Ridgewood with a rating of 5 has weekday rates as <strong>220$</strong> for regular customer and <strong>100$</strong>
+for rewards customer. The weekend rates are <strong>150$</strong> for regular customer and <strong>40$</strong> for a
+rewards customer.</li>
+            </ul>
+        </blockquote>
+<div class="row">
+<div class="col-md-4">
+  <div class="form-group">
+                <label>Customer type</label>
+                <select class="form-control" ng-model="customer_type" >
+                <option >Regular</option>
+                <option >Rewards</option>
+                </select>
+  </div>
+</div>
+</div>
+<div class="row">
+  <alert ng-repeat="alert in alerts" type="alert.type" close="closeAlert($index)">{{alert.msg}}</alert>
+<div class="col-md-4">
+<label>Date Pick: </label>
+
+      <div class="well" ng-model="datepick">
+          <datepicker min="minDate" show-weeks="true"></datepicker>
+          <button style="margin-top:30px" class="btn btn-success btn-lg btn-block" ng-click="adddate()">Add Date</button>
+      </div>
+</div>
+<div class="col-md-4">
+      <blockquote>
+      <h3>Date:</h3>
+          <ul>
+            <li ng-repeat="bookdate in bookdates">{{bookdate.year}}-{{bookdate.month}}-{{bookdate.day}} {{bookdate.weekday}}<button  ng-click="deldate($index)" type="button" class="close" aria-hidden="true">&times;</button></li>
+          </ul>
+      </blockquote>
+</div>            
+</div>
+<div class="row">
+  <div class="jumbotron">
+<button style="margin-top:30px" class="btn btn-info btn-lg btn-block" ng-click="find()">Find A Hotel!</button>
+<table class="table">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Rating</th>
+            <th>Price</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Lakewood</td>
+            <td>3</td>
+            <td>{{lakewood[1]}}$</td>
+          </tr>
+          <tr>
+            <td>Bridgewood</td>
+            <td>4</td>
+            <td>{{bridgewood[1]}}$</td>
+          </tr>
+          <tr>
+            <td>Ridgewood</td>
+            <td>5</td>
+            <td>{{ridgewood[1]}}$</td>
+          </tr>
+        </tbody>
+      </table>
+      {{besthotel}}
+</div>
+</div>
+<div class="footer">
+   <p>Designed and built with <a href="http://www.bootcss.com" >Bootstrap</a> and <a href="http://angularjs.org">Angularjs</a> by <a href="#" >@playing</a>.</p>
+   <p>Based on <a href="http://nodejs.org/" >nodejs</a> and use<a href="http://gruntjs.com/" >Grunt</a>, <a href="http://bower.io/" >Bower</a>, <a href="http://yeoman.io/" >Yeoman</a>.</p>
+    </div>
